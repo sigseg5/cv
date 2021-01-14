@@ -1,0 +1,74 @@
+%%% Based on CV by Ilya Chesalin
+
+
+%% Document properties and packages
+\documentclass[a4paper,12pt,final]{memoir}
+
+\pagestyle{empty}					% no pagenumbering
+\setlength{\parindent}{0pt}			% no paragraph indentation
+
+\usepackage{flowfram}										% column layout
+\usepackage[top=1cm,left=1cm,right=1cm,bottom=1cm]{geometry}% margins
+\usepackage{graphicx}										% figures
+\usepackage{url}											% URLs
+\usepackage[usenames,dvipsnames]{xcolor}					% color
+\usepackage{multicol}										% columns env.
+\usepackage{paralist}										% compact lists
+\usepackage{tikz}
+\usepackage[russian,english]{babel}
+\usepackage{hyperref}
+
+%% Create column layout
+\setlength{\multicolsep}{0pt}
+\setlength{\vcolumnsep}{\baselineskip}
+\setlength{\columnsep}{\vcolumnsep}
+
+
+%% Frame setup (flowfram package)
+% Left frame
+\newflowframe{0.2\textwidth}{\textheight}{0pt}{0pt}[left]
+	\newlength{\LeftMainSep}
+	\setlength{\LeftMainSep}{0.2\textwidth}
+	\addtolength{\LeftMainSep}{1\columnsep}
+ 
+% Small static frame for the vertical line
+\newstaticframe{1.5pt}{\textheight}{\LeftMainSep}{0pt}
+
+\begin{staticcontents}{1}
+\hfill
+\tikz{%
+	\draw[solid,color=Gray,line width=1.5pt,yshift=0]
+	(0,0) -- (0,\textheight);}%
+\hfill\mbox{}
+\end{staticcontents}
+ 
+% Right frame
+\addtolength{\LeftMainSep}{1.5pt}
+\addtolength{\LeftMainSep}{1\columnsep}
+\newflowframe{0.7\textwidth}{\textheight}{\LeftMainSep}{0pt}[main01]
+
+
+%% Macro definitions macros
+%\newcommand{\Sep}{\vspace{1.5em}}
+%\newcommand{\SmallSep}{\vspace{0.5em}}
+\newcommand{\Sep}{\vspace{1.0em}}
+\newcommand{\SmallSep}{\vspace{0.4em}}
+
+\newcommand{\NegativeSmallSep}{\vspace{-0.8em}}
+
+\newcommand{\CVSection}[1]
+	{\Large\textbf{#1}\par
+	\SmallSep\normalsize\normalfont}
+
+\newcommand{\CVItem}[1]
+	{\textbf{\color{Cyan} #1}}
+
+\newcommand{\heart}{\ensuremath\heartsuit}
+
+
+%% Document body
+\begin{document}
+
+\input{contents.tex}
+
+\end{document}
